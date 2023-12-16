@@ -8,6 +8,7 @@ import Cart from '../screens/cart';
 import Login from '../screens/login';
 import {useDispatch} from 'react-redux';
 import {checkUserLogin} from '../store/actions/authAction';
+import Register from '../screens/register';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
@@ -30,6 +31,11 @@ const StackNavigator = () => {
         options={{headerShown: true}}
         name={LOGİN}
         component={Login}
+      />
+      <Stack.Screen
+        options={{headerShown: true}}
+        name={'Register'}
+        component={Register}
       />
     </Stack.Navigator>
   );

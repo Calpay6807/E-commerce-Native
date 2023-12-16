@@ -21,7 +21,7 @@ export default function Login({navigation}) {
   return (
     <View style={styles.container}>
       <Formik
-        initialValues={{username: 'mor_2314', password: '83r5^_'}}
+        initialValues={{username: '', password: ''}}
         onSubmit={values => dispatch(userLogin(values))}
         validationSchema={loginSchema}>
         {({handleChange, handleSubmit, values, errors}) => (
@@ -57,6 +57,15 @@ export default function Login({navigation}) {
               onPress={handleSubmit}
               style={loginPending ? styles.pasiveButton : styles.activeButton}>
               {loginPending ? <ActivityIndicator /> : <Text>Giriş Yap</Text>}
+            </Button>
+            <Button
+              onPress={() =>
+                navigation.navigate('Register', {
+                  username: values.username,
+                  password: values.password,
+                })
+              }>
+              <Text>Kayıt Ol</Text>
             </Button>
           </View>
         )}

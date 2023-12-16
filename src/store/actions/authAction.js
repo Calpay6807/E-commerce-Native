@@ -1,15 +1,41 @@
 import {Alert} from 'react-native';
-import {LOGİN_URL} from '../../sevice/urls';
+import {LOGİN_URL, REGISTER_URL} from '../../sevice/urls';
 import {postRequest} from '../../sevice/verb';
 import {
   FETCH_USER_LOGIN,
   FETCH_USER_LOGOUT,
+  FETCH_USER_REGISTER,
   USER_LOGIN_PENDİGN,
   USER_LOGIN_REJECTED,
   USER_LOGOUT_PENDİGN,
   USER_LOGOUT_REJECTED,
+  USER_REGISTER_PENDİGN,
+  USER_REGISTER_REJECTED,
 } from '../types/authType';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export const userRegister = payload => {
+  return async dispatch => {
+    dispatch({
+      type: USER_REGISTER_PENDİGN,
+    });
+    try {
+      const response = await postRequest(REGISTER_URL, payload);
+      console.log(response.data);
+      dispatch({
+        type: FETCH_USER_REGISTER,
+      });
+    } catch (error) {
+      dispatch({
+        type: USER_REGISTER_REJECTED,
+      });
+      console.log(JSON.stringify(error.response, 0, 2));
+      Alert.alert('Giriş Yap', error.response.data, [
+        {text: 'Tamam', onPress: () => console.log('OK Pressed')},
+      ]);
+    }
+  };
+};
 
 export const userLogin = payload => {
   return async dispatch => {
@@ -45,12 +71,19 @@ export const checkUserLogin = () => {
     try {
       // const response = await postRequest(LOGİN_URL, payload);
       const token = await AsyncStorage.getItem('token');
-      if (token)
+      if (token) {
         dispatch({
           type: FETCH_USER_LOGIN,
           payload: token,
           isLogin: true,
         });
+      } else {
+        dispatch({
+          type: FETCH_USER_LOGIN,
+          payload: null,
+          isLogin: false,
+        });
+      }
     } catch (error) {
       dispatch({
         type: USER_LOGIN_REJECTED,
