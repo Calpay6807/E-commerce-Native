@@ -15,7 +15,7 @@ export const getProductList = params => {
       type: PRODUCT_PENDİGN,
     });
     try {
-      const response = await getRequest(PRODUCTS_URL, params);
+      const response = await getRequest(PRODUCTS_URL + `${params.category}`);
       dispatch({
         type: FETCH_PRODUCT_LİST,
         payload: response.data,

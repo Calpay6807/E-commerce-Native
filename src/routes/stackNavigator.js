@@ -27,7 +27,10 @@ const StackNavigator = () => {
       />
 
       <Stack.Screen
-        options={{headerShown: true}}
+        options={({route}) => ({
+          title: route.params.category,
+          headerShown: true,
+        })}
         name={PRODUCTLİST}
         component={ProductList}
       />

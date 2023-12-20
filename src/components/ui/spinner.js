@@ -1,21 +1,22 @@
-import {StyleSheet, ActivityIndicator, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {AppColor} from '../../theme/appColor';
+import {Spinner} from '@ui-kitten/components';
 
-const Spinner = () => {
+const Spinners = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator size={'small'} color={AppColor.PRİMARY} />
+      <Spinner />
     </View>
   );
 };
 
-export default Spinner;
+export default Spinners;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
   },
 });
