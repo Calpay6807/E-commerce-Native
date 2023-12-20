@@ -1,47 +1,25 @@
-import {ADD_CARTS_URL, PRODUCTS_URL} from '../../sevice/urls';
+import {CATEGORİES_URL} from '../../sevice/urls';
 import {getRequest, postRequest} from '../../sevice/verb';
 import {
-  ADD_CART_PENDİGN,
-  ADD_CART_REJECTED,
-  FETCH_ADD_CART_LİST,
-  FETCH_PRODUCT_LİST,
-  PRODUCT_PENDİGN,
-  PRODUCT_REJECTED,
+  FETCH_CATEGORİES,
+  CATEGORİES_PENDİGN,
+  CATEGORİES_REJECTED,
 } from '../types/homeTypes';
 
-export const getProductList = params => {
+export const getCategories = params => {
   return async dispatch => {
     dispatch({
-      type: PRODUCT_PENDİGN,
+      type: CATEGORİES_PENDİGN,
     });
     try {
-      const response = await getRequest(PRODUCTS_URL, params);
+      const response = await getRequest(CATEGORİES_URL, params);
       dispatch({
-        type: FETCH_PRODUCT_LİST,
+        type: FETCH_CATEGORİES,
         payload: response.data,
       });
     } catch (error) {
       dispatch({
-        type: PRODUCT_REJECTED,
-      });
-    }
-  };
-};
-
-export const addToCart = payload => {
-  return async dispatch => {
-    dispatch({
-      type: ADD_CART_PENDİGN,
-    });
-    try {
-      const response = await postRequest(ADD_CARTS_URL, payload);
-      dispatch({
-        type: FETCH_ADD_CART_LİST,
-        payload: response.data,
-      });
-    } catch (error) {
-      dispatch({
-        type: ADD_CART_REJECTED,
+        type: CATEGORİES_REJECTED,
       });
     }
   };

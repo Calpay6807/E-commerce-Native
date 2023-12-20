@@ -26,7 +26,11 @@ const StackNavigator = () => {
         component={Cart}
       />
 
-      <Stack.Screen name={PRODUCTLİST} component={ProductList} />
+      <Stack.Screen
+        options={{headerShown: true}}
+        name={PRODUCTLİST}
+        component={ProductList}
+      />
       <Stack.Screen
         options={{headerShown: true}}
         name={LOGİN}
