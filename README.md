@@ -35,3 +35,24 @@ npm run ios
 # OR using Yarn
 yarn ios
 ```
+
+## Library
+
+- "@eva-design/eva": "^2.2.0"
+- "@react-native-async-storage/async-storage"
+- "@react-navigation/bottom-tabs"
+- "@react-navigation/native"
+- "@react-navigation/native-stack"
+- "@react-navigation/stack"
+- "@ui-kitten/components"
+- "axios"
+- "formik"
+- "iconsax-react-native"
+- "react-native-gesture-handler"
+- "react-native-safe-area-context"
+- "react-native-screens"
+- "react-native-svg"
+- "react-redux"
+- "redux"
+- "redux-thunk"
+- "yup"
