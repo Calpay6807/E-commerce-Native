@@ -57,6 +57,4 @@ yarn ios
 - "redux-thunk"
 - "yup"
 
-## Proje Gif
 
-<img width="400" height="800"  src="/ecommerce/src/assets/images/Simulator Screen Recording - iPhone 15 Pro Max - 2023-12-27 at 12.19.35.mp4" alt="Project Demo" />
