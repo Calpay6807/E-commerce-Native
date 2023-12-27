@@ -58,3 +58,9 @@ yarn ios
 - "yup"
 
 
+
+## Proje Gif
+
+
+<img src="/src/assets/images/Simulator-Screen-Recording-iPhone-15-Pro-Max-2023-12-27-at-12.19.35.gif"/>
+
